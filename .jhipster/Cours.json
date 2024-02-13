@@ -1,0 +1,29 @@
+{
+  "annotations": {
+    "changelogDate": "20240213185446"
+  },
+  "applications": "*",
+  "entityTableName": "cours",
+  "fields": [
+    {
+      "fieldName": "titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "file",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    }
+  ],
+  "name": "Cours",
+  "relationships": [
+    {
+      "otherEntityName": "matiere",
+      "otherEntityRelationshipName": "cours",
+      "relationshipName": "matiere",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

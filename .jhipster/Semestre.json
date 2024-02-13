@@ -1,0 +1,35 @@
+{
+  "annotations": {
+    "changelogDate": "20240213185546"
+  },
+  "applications": "*",
+  "entityTableName": "semestre",
+  "fields": [
+    {
+      "fieldName": "anneeScolaire",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "s",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "Semestre",
+  "relationships": [
+    {
+      "otherEntityName": "niveau",
+      "otherEntityRelationshipName": "semestre",
+      "relationshipName": "niveau",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "matiere",
+      "otherEntityRelationshipName": "semestre",
+      "relationshipName": "matiere",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

@@ -1,0 +1,52 @@
+{
+  "annotations": {
+    "changelogDate": "20240213185346"
+  },
+  "applications": "*",
+  "entityTableName": "matiere",
+  "fields": [
+    {
+      "fieldName": "nomMatiere",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Matiere",
+  "relationships": [
+    {
+      "otherEntityName": "semestre",
+      "otherEntityRelationshipName": "matiere",
+      "relationshipName": "semestre",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "note",
+      "otherEntityRelationshipName": "matiere",
+      "relationshipName": "note",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "cours",
+      "otherEntityRelationshipName": "matiere",
+      "relationshipName": "cours",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "seance",
+      "otherEntityRelationshipName": "matiere",
+      "relationshipName": "seance",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "professeur",
+      "otherEntityRelationshipName": "matiere",
+      "relationshipName": "professeur",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

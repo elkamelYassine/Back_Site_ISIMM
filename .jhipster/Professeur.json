@@ -1,0 +1,59 @@
+{
+  "annotations": {
+    "changelogDate": "20240213184646"
+  },
+  "applications": "*",
+  "entityTableName": "professeur",
+  "fields": [
+    {
+      "fieldName": "prenom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "matricule",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "departement",
+      "fieldType": "Departement",
+      "fieldValues": "Informatique,Mathematique,Physique"
+    },
+    {
+      "fieldName": "titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numTel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateDeNaissance",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "photoDeProfile",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "name": "Professeur",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "matiere",
+      "otherEntityRelationshipName": "professeur",
+      "relationshipName": "matiere",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

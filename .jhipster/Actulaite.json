@@ -1,0 +1,20 @@
+{
+  "annotations": {
+    "changelogDate": "20240213184946"
+  },
+  "applications": "*",
+  "entityTableName": "actulaite",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "data",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Actulaite",
+  "relationships": [],
+  "searchEngine": "no"
+}

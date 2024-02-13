@@ -1,0 +1,46 @@
+{
+  "annotations": {
+    "changelogDate": "20240213184746"
+  },
+  "applications": "*",
+  "entityTableName": "niveau",
+  "fields": [
+    {
+      "fieldName": "classe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "td",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Niveau",
+  "relationships": [
+    {
+      "otherEntityName": "semestre",
+      "otherEntityRelationshipName": "niveau",
+      "relationshipName": "semestre",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "seance",
+      "otherEntityRelationshipName": "niveau",
+      "relationshipName": "seance",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "etudiant",
+      "otherEntityRelationshipName": "niveau",
+      "relationshipName": "etudiant",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

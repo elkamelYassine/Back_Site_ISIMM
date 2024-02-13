@@ -1,0 +1,36 @@
+{
+  "annotations": {
+    "changelogDate": "20240213185146"
+  },
+  "applications": "*",
+  "entityTableName": "club",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pageFB",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pageIg",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Club",
+  "relationships": [
+    {
+      "otherEntityName": "etudiant",
+      "otherEntityRelationshipName": "club",
+      "relationshipName": "etudiant",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

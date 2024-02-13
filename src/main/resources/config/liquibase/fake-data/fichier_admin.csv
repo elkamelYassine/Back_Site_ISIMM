@@ -1,0 +1,11 @@
+id;titre;type;file;file_content_type;demande_valide
+1;calme tant souvent;Reusite;../fake-data/blob/hipster.png;image/png;false
+2;pourvu que coïncider;Presence;../fake-data/blob/hipster.png;image/png;true
+3;tic-tac complètement hors;Reusite;../fake-data/blob/hipster.png;image/png;true
+4;afin que;Presence;../fake-data/blob/hipster.png;image/png;false
+5;bang;Presence;../fake-data/blob/hipster.png;image/png;false
+6;enregistrer aussitôt que;Presence;../fake-data/blob/hipster.png;image/png;true
+7;cot cot secouriste;Reusite;../fake-data/blob/hipster.png;image/png;true
+8;d'après du moment que;Presence;../fake-data/blob/hipster.png;image/png;false
+9;de manière à ce que jeune enfant ci;Presence;../fake-data/blob/hipster.png;image/png;false
+10;spécialiste;Reusite;../fake-data/blob/hipster.png;image/png;false

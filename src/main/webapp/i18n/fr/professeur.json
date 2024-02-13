@@ -1,0 +1,33 @@
+{
+  "isimmManagerApp": {
+    "professeur": {
+      "home": {
+        "title": "Professeurs",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Professeur",
+        "createOrEditLabel": "Créer ou éditer un Professeur",
+        "notFound": "Aucun Professeur trouvé"
+      },
+      "created": "Un nouveau Professeur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Professeur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Professeur avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Professeur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Professeur"
+      },
+      "id": "ID",
+      "prenom": "Prenom",
+      "nom": "Nom",
+      "email": "Email",
+      "matricule": "Matricule",
+      "departement": "Departement",
+      "titre": "Titre",
+      "numTel": "Num Tel",
+      "dateDeNaissance": "Date De Naissance",
+      "photoDeProfile": "Photo De Profile",
+      "matiere": "Matiere"
+    }
+  }
+}

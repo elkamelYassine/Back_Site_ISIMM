@@ -48,6 +48,26 @@ public class CacheConfiguration {
             createCache(cm, tn.isimm.manager.domain.User.class.getName());
             createCache(cm, tn.isimm.manager.domain.Authority.class.getName());
             createCache(cm, tn.isimm.manager.domain.User.class.getName() + ".authorities");
+            createCache(cm, tn.isimm.manager.domain.Etudiant.class.getName());
+            createCache(cm, tn.isimm.manager.domain.Etudiant.class.getName() + ".fichierAdmins");
+            createCache(cm, tn.isimm.manager.domain.Etudiant.class.getName() + ".clubs");
+            createCache(cm, tn.isimm.manager.domain.Administrateur.class.getName());
+            createCache(cm, tn.isimm.manager.domain.Professeur.class.getName());
+            createCache(cm, tn.isimm.manager.domain.Professeur.class.getName() + ".matieres");
+            createCache(cm, tn.isimm.manager.domain.Niveau.class.getName());
+            createCache(cm, tn.isimm.manager.domain.Niveau.class.getName() + ".seances");
+            createCache(cm, tn.isimm.manager.domain.Niveau.class.getName() + ".etudiants");
+            createCache(cm, tn.isimm.manager.domain.FichierAdmin.class.getName());
+            createCache(cm, tn.isimm.manager.domain.Actulaite.class.getName());
+            createCache(cm, tn.isimm.manager.domain.Note.class.getName());
+            createCache(cm, tn.isimm.manager.domain.Club.class.getName());
+            createCache(cm, tn.isimm.manager.domain.Club.class.getName() + ".etudiants");
+            createCache(cm, tn.isimm.manager.domain.Seance.class.getName());
+            createCache(cm, tn.isimm.manager.domain.Matiere.class.getName());
+            createCache(cm, tn.isimm.manager.domain.Matiere.class.getName() + ".cours");
+            createCache(cm, tn.isimm.manager.domain.Matiere.class.getName() + ".professeurs");
+            createCache(cm, tn.isimm.manager.domain.Cours.class.getName());
+            createCache(cm, tn.isimm.manager.domain.Semestre.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

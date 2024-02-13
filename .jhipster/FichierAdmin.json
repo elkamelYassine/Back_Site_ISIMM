@@ -1,0 +1,38 @@
+{
+  "annotations": {
+    "changelogDate": "20240213184846"
+  },
+  "applications": "*",
+  "entityTableName": "fichier_admin",
+  "fields": [
+    {
+      "fieldName": "titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "TypeFichierAdmin",
+      "fieldValues": "Presence,Reusite"
+    },
+    {
+      "fieldName": "file",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "demandeValide",
+      "fieldType": "Boolean"
+    }
+  ],
+  "name": "FichierAdmin",
+  "relationships": [
+    {
+      "otherEntityName": "etudiant",
+      "otherEntityRelationshipName": "fichierAdmin",
+      "relationshipName": "etudiant",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

@@ -1,0 +1,28 @@
+{
+  "isimmManagerApp": {
+    "fichierAdmin": {
+      "home": {
+        "title": "Fichier Admins",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Fichier Admin",
+        "createOrEditLabel": "Create or edit a Fichier Admin",
+        "notFound": "No Fichier Admins found"
+      },
+      "created": "A new Fichier Admin is created with identifier {{ param }}",
+      "updated": "A Fichier Admin is updated with identifier {{ param }}",
+      "deleted": "A Fichier Admin is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Fichier Admin {{ id }}?"
+      },
+      "detail": {
+        "title": "Fichier Admin"
+      },
+      "id": "ID",
+      "titre": "Titre",
+      "type": "Type",
+      "file": "File",
+      "demandeValide": "Demande Valide",
+      "etudiant": "Etudiant"
+    }
+  }
+}

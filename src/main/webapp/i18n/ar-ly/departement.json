@@ -1,0 +1,10 @@
+{
+  "isimmManagerApp": {
+    "Departement": {
+      "null": "",
+      "Informatique": "Informatique",
+      "Mathematique": "Mathematique",
+      "Physique": "Physique"
+    }
+  }
+}

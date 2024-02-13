@@ -1,0 +1,66 @@
+{
+  "annotations": {
+    "changelogDate": "20240213184446"
+  },
+  "applications": "*",
+  "documentation": "The Employee entity.",
+  "entityTableName": "etudiant",
+  "fields": [
+    {
+      "documentation": "The firstname attribute.",
+      "fieldName": "prenom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numEtudiant",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "numTel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateDeNaissance",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "photoDeProfile",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "name": "Etudiant",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "fichierAdmin",
+      "otherEntityRelationshipName": "etudiant",
+      "relationshipName": "fichierAdmin",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "niveau",
+      "otherEntityRelationshipName": "etudiant",
+      "relationshipName": "niveau",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "club",
+      "otherEntityRelationshipName": "etudiant",
+      "relationshipName": "club",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

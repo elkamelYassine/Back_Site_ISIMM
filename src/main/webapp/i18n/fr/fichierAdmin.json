@@ -1,0 +1,28 @@
+{
+  "isimmManagerApp": {
+    "fichierAdmin": {
+      "home": {
+        "title": "FichierAdmins",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Fichier Admin",
+        "createOrEditLabel": "Créer ou éditer un Fichier Admin",
+        "notFound": "Aucun Fichier Admin trouvé"
+      },
+      "created": "Un nouveau Fichier Admin a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Fichier Admin avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Fichier Admin avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Fichier Admin {{ id }} ?"
+      },
+      "detail": {
+        "title": "Fichier Admin"
+      },
+      "id": "ID",
+      "titre": "Titre",
+      "type": "Type",
+      "file": "File",
+      "demandeValide": "Demande Valide",
+      "etudiant": "Etudiant"
+    }
+  }
+}

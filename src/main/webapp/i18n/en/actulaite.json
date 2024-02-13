@@ -1,0 +1,25 @@
+{
+  "isimmManagerApp": {
+    "actulaite": {
+      "home": {
+        "title": "Actulaites",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Actulaite",
+        "createOrEditLabel": "Create or edit a Actulaite",
+        "notFound": "No Actulaites found"
+      },
+      "created": "A new Actulaite is created with identifier {{ param }}",
+      "updated": "A Actulaite is updated with identifier {{ param }}",
+      "deleted": "A Actulaite is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Actulaite {{ id }}?"
+      },
+      "detail": {
+        "title": "Actulaite"
+      },
+      "id": "ID",
+      "date": "Date",
+      "data": "Data"
+    }
+  }
+}

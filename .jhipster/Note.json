@@ -1,0 +1,24 @@
+{
+  "annotations": {
+    "changelogDate": "20240213185046"
+  },
+  "applications": "*",
+  "entityTableName": "note",
+  "fields": [
+    {
+      "fieldName": "note",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "Note",
+  "relationships": [
+    {
+      "otherEntityName": "matiere",
+      "otherEntityRelationshipName": "note",
+      "relationshipName": "matiere",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}
