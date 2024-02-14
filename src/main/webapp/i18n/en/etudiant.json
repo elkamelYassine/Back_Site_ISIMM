@@ -28,6 +28,7 @@
       "fichierAdmin": "Fichier Admin",
       "niveau": "Niveau",
       "club": "Club",
+      "user": "User",
       "help": {
         "prenom": "The firstname attribute."
       }

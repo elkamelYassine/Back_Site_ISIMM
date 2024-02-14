@@ -76,6 +76,10 @@ public class Etudiant implements Serializable {
     @JsonIgnoreProperties(value = { "etudiants" }, allowSetters = true)
     private Set<Club> clubs = new HashSet<>();
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(unique = true)
+    private User user;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -259,6 +263,19 @@ public class Etudiant implements Serializable {
 
     public Etudiant removeClub(Club club) {
         this.clubs.remove(club);
+        return this;
+    }
+
+    public User getUser() {
+        return this.user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Etudiant user(User user) {
+        this.setUser(user);
         return this;
     }
 

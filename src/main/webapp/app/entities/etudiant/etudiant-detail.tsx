@@ -114,6 +114,10 @@ export const EtudiantDetail = () => {
                 ))
               : null}
           </dd>
+          <dt>
+            <Translate contentKey="isimmManagerApp.etudiant.user">User</Translate>
+          </dt>
+          <dd>{etudiantEntity.user ? etudiantEntity.user.login : ''}</dd>
         </dl>
         <Button tag={Link} to="/etudiant" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

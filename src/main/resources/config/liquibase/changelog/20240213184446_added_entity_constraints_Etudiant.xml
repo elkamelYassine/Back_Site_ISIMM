@@ -28,5 +28,12 @@
                                  referencedColumnNames="id"
                                  referencedTableName="club"
                                  />
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="etudiant"
+                                 constraintName="fk_etudiant__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"
+                                 />
     </changeSet>
 </databaseChangeLog>

@@ -60,6 +60,15 @@
       "relationshipName": "club",
       "relationshipSide": "left",
       "relationshipType": "many-to-many"
+    },
+    {
+      "id": false,
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "etudiant",
+      "relationshipName": "user",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
     }
   ],
   "searchEngine": "no"

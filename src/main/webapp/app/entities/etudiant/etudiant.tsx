@@ -163,6 +163,9 @@ export const Etudiant = () => {
                   <th>
                     <Translate contentKey="isimmManagerApp.etudiant.niveau">Niveau</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
+                  <th>
+                    <Translate contentKey="isimmManagerApp.etudiant.user">User</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -203,6 +206,7 @@ export const Etudiant = () => {
                       ) : null}
                     </td>
                     <td>{etudiant.niveau ? <Link to={`/niveau/${etudiant.niveau.id}`}>{etudiant.niveau.id}</Link> : ''}</td>
+                    <td>{etudiant.user ? etudiant.user.login : ''}</td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">
                         <Button tag={Link} to={`/etudiant/${etudiant.id}`} color="info" size="sm" data-cy="entityDetailsButton">

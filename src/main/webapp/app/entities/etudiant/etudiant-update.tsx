@@ -12,6 +12,8 @@ import { INiveau } from 'app/shared/model/niveau.model';
 import { getEntities as getNiveaus } from 'app/entities/niveau/niveau.reducer';
 import { IClub } from 'app/shared/model/club.model';
 import { getEntities as getClubs } from 'app/entities/club/club.reducer';
+import { IUser } from 'app/shared/model/user.model';
+import { getUsers } from 'app/modules/administration/user-management/user-management.reducer';
 import { IEtudiant } from 'app/shared/model/etudiant.model';
 import { getEntity, updateEntity, createEntity, reset } from './etudiant.reducer';
 
@@ -25,6 +27,7 @@ export const EtudiantUpdate = () => {
 
   const niveaus = useAppSelector(state => state.niveau.entities);
   const clubs = useAppSelector(state => state.club.entities);
+  const users = useAppSelector(state => state.userManagement.users);
   const etudiantEntity = useAppSelector(state => state.etudiant.entity);
   const loading = useAppSelector(state => state.etudiant.loading);
   const updating = useAppSelector(state => state.etudiant.updating);
@@ -41,6 +44,7 @@ export const EtudiantUpdate = () => {
 
     dispatch(getNiveaus({}));
     dispatch(getClubs({}));
+    dispatch(getUsers({}));
   }, []);
 
   useEffect(() => {
@@ -63,6 +67,7 @@ export const EtudiantUpdate = () => {
       ...values,
       clubs: mapIdList(values.clubs),
       niveau: niveaus.find(it => it.id.toString() === values.niveau.toString()),
+      user: users.find(it => it.id.toString() === values.user.toString()),
     };
 
     if (isNew) {
@@ -79,6 +84,7 @@ export const EtudiantUpdate = () => {
           ...etudiantEntity,
           niveau: etudiantEntity?.niveau?.id,
           clubs: etudiantEntity?.clubs?.map(e => e.id.toString()),
+          user: etudiantEntity?.user?.id,
         };
 
   return (
@@ -182,6 +188,22 @@ export const EtudiantUpdate = () => {
                   ? clubs.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="etudiant-user"
+                name="user"
+                data-cy="user"
+                label={translate('isimmManagerApp.etudiant.user')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {users
+                  ? users.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.login}
                       </option>
                     ))
                   : null}

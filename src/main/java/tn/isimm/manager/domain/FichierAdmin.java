@@ -42,7 +42,7 @@ public class FichierAdmin implements Serializable {
     private Boolean demandeValide;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "fichierAdmins", "niveau", "clubs" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "fichierAdmins", "niveau", "clubs", "user" }, allowSetters = true)
     private Etudiant etudiant;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
