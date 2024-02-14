@@ -51,6 +51,10 @@ public class Administrateur implements Serializable {
     @Column(name = "photo_de_profile_content_type")
     private String photoDeProfileContentType;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(unique = true)
+    private User user;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -181,6 +185,19 @@ public class Administrateur implements Serializable {
 
     public void setPhotoDeProfileContentType(String photoDeProfileContentType) {
         this.photoDeProfileContentType = photoDeProfileContentType;
+    }
+
+    public User getUser() {
+        return this.user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Administrateur user(User user) {
+        this.setUser(user);
+        return this;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

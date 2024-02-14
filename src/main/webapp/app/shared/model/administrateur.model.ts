@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import { IUser } from 'app/shared/model/user.model';
 
 export interface IAdministrateur {
   id?: number;
@@ -11,6 +12,7 @@ export interface IAdministrateur {
   dateDeNaissance?: dayjs.Dayjs | null;
   photoDeProfileContentType?: string | null;
   photoDeProfile?: string | null;
+  user?: IUser | null;
 }
 
 export const defaultValue: Readonly<IAdministrateur> = {};

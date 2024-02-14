@@ -25,7 +25,8 @@
       "titre": "Titre",
       "numTel": "Num Tel",
       "dateDeNaissance": "Date De Naissance",
-      "photoDeProfile": "Photo De Profile"
+      "photoDeProfile": "Photo De Profile",
+      "user": "User"
     }
   }
 }
