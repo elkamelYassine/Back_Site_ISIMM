@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 import { IMatiere } from 'app/shared/model/matiere.model';
+import { IUser } from 'app/shared/model/user.model';
 import { Departement } from 'app/shared/model/enumerations/departement.model';
 
 export interface IProfesseur {
@@ -15,6 +16,7 @@ export interface IProfesseur {
   photoDeProfileContentType?: string | null;
   photoDeProfile?: string | null;
   matieres?: IMatiere[] | null;
+  user?: IUser | null;
 }
 
 export const defaultValue: Readonly<IProfesseur> = {};

@@ -21,5 +21,12 @@
                                  referencedColumnNames="id"
                                  referencedTableName="matiere"
                                  />
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="professeur"
+                                 constraintName="fk_professeur__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"
+                                 />
     </changeSet>
 </databaseChangeLog>
