@@ -27,7 +27,8 @@
       "numTel": "Num Tel",
       "dateDeNaissance": "Date De Naissance",
       "photoDeProfile": "Photo De Profile",
-      "matiere": "Matiere"
+      "matiere": "Matiere",
+      "user": "User"
     }
   }
 }

@@ -41,6 +41,16 @@
   ],
   "name": "Administrateur",
   "pagination": "infinite-scroll",
-  "relationships": [],
+  "relationships": [
+    {
+      "id": false,
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "administrateur",
+      "relationshipName": "user",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    }
+  ],
   "searchEngine": "no"
 }

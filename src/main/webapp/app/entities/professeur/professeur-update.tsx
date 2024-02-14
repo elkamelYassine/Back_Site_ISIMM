@@ -10,6 +10,8 @@ import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { IMatiere } from 'app/shared/model/matiere.model';
 import { getEntities as getMatieres } from 'app/entities/matiere/matiere.reducer';
+import { IUser } from 'app/shared/model/user.model';
+import { getUsers } from 'app/modules/administration/user-management/user-management.reducer';
 import { IProfesseur } from 'app/shared/model/professeur.model';
 import { Departement } from 'app/shared/model/enumerations/departement.model';
 import { getEntity, updateEntity, createEntity, reset } from './professeur.reducer';
@@ -23,6 +25,7 @@ export const ProfesseurUpdate = () => {
   const isNew = id === undefined;
 
   const matieres = useAppSelector(state => state.matiere.entities);
+  const users = useAppSelector(state => state.userManagement.users);
   const professeurEntity = useAppSelector(state => state.professeur.entity);
   const loading = useAppSelector(state => state.professeur.loading);
   const updating = useAppSelector(state => state.professeur.updating);
@@ -39,6 +42,7 @@ export const ProfesseurUpdate = () => {
     }
 
     dispatch(getMatieres({}));
+    dispatch(getUsers({}));
   }, []);
 
   useEffect(() => {
@@ -57,6 +61,7 @@ export const ProfesseurUpdate = () => {
       ...professeurEntity,
       ...values,
       matieres: mapIdList(values.matieres),
+      user: users.find(it => it.id.toString() === values.user.toString()),
     };
 
     if (isNew) {
@@ -73,6 +78,7 @@ export const ProfesseurUpdate = () => {
           departement: 'Informatique',
           ...professeurEntity,
           matieres: professeurEntity?.matieres?.map(e => e.id.toString()),
+          user: professeurEntity?.user?.id,
         };
 
   return (
@@ -183,6 +189,22 @@ export const ProfesseurUpdate = () => {
                   ? matieres.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="professeur-user"
+                name="user"
+                data-cy="user"
+                label={translate('isimmManagerApp.professeur.user')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {users
+                  ? users.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.login}
                       </option>
                     ))
                   : null}

@@ -164,6 +164,9 @@ export const Administrateur = () => {
                     <Translate contentKey="isimmManagerApp.administrateur.photoDeProfile">Photo De Profile</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('photoDeProfile')} />
                   </th>
+                  <th>
+                    <Translate contentKey="isimmManagerApp.administrateur.user">User</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -204,6 +207,7 @@ export const Administrateur = () => {
                         </div>
                       ) : null}
                     </td>
+                    <td>{administrateur.user ? administrateur.user.login : ''}</td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">
                         <Button tag={Link} to={`/administrateur/${administrateur.id}`} color="info" size="sm" data-cy="entityDetailsButton">

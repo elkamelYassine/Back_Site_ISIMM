@@ -49,7 +49,7 @@ public class Matiere implements Serializable {
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "matieres")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "matieres" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "matieres", "user" }, allowSetters = true)
     private Set<Professeur> professeurs = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
