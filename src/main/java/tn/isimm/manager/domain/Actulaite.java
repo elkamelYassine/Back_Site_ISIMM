@@ -29,6 +29,13 @@ public class Actulaite implements Serializable {
     @Column(name = "data")
     private String data;
 
+    @Lob
+    @Column(name = "image")
+    private byte[] image;
+
+    @Column(name = "image_content_type")
+    private String imageContentType;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -70,6 +77,32 @@ public class Actulaite implements Serializable {
         this.data = data;
     }
 
+    public byte[] getImage() {
+        return this.image;
+    }
+
+    public Actulaite image(byte[] image) {
+        this.setImage(image);
+        return this;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public String getImageContentType() {
+        return this.imageContentType;
+    }
+
+    public Actulaite imageContentType(String imageContentType) {
+        this.imageContentType = imageContentType;
+        return this;
+    }
+
+    public void setImageContentType(String imageContentType) {
+        this.imageContentType = imageContentType;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -96,6 +129,8 @@ public class Actulaite implements Serializable {
             "id=" + getId() +
             ", date='" + getDate() + "'" +
             ", data='" + getData() + "'" +
+            ", image='" + getImage() + "'" +
+            ", imageContentType='" + getImageContentType() + "'" +
             "}";
     }
 }

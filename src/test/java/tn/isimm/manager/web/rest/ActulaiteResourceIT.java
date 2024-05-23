@@ -8,6 +8,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import jakarta.persistence.EntityManager;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Base64;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
@@ -37,6 +38,11 @@ class ActulaiteResourceIT {
     private static final String DEFAULT_DATA = "AAAAAAAAAA";
     private static final String UPDATED_DATA = "BBBBBBBBBB";
 
+    private static final byte[] DEFAULT_IMAGE = TestUtil.createByteArray(1, "0");
+    private static final byte[] UPDATED_IMAGE = TestUtil.createByteArray(1, "1");
+    private static final String DEFAULT_IMAGE_CONTENT_TYPE = "image/jpg";
+    private static final String UPDATED_IMAGE_CONTENT_TYPE = "image/png";
+
     private static final String ENTITY_API_URL = "/api/actulaites";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -61,7 +67,11 @@ class ActulaiteResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Actulaite createEntity(EntityManager em) {
-        Actulaite actulaite = new Actulaite().date(DEFAULT_DATE).data(DEFAULT_DATA);
+        Actulaite actulaite = new Actulaite()
+            .date(DEFAULT_DATE)
+            .data(DEFAULT_DATA)
+            .image(DEFAULT_IMAGE)
+            .imageContentType(DEFAULT_IMAGE_CONTENT_TYPE);
         return actulaite;
     }
 
@@ -72,7 +82,11 @@ class ActulaiteResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Actulaite createUpdatedEntity(EntityManager em) {
-        Actulaite actulaite = new Actulaite().date(UPDATED_DATE).data(UPDATED_DATA);
+        Actulaite actulaite = new Actulaite()
+            .date(UPDATED_DATE)
+            .data(UPDATED_DATA)
+            .image(UPDATED_IMAGE)
+            .imageContentType(UPDATED_IMAGE_CONTENT_TYPE);
         return actulaite;
     }
 
@@ -96,6 +110,8 @@ class ActulaiteResourceIT {
         Actulaite testActulaite = actulaiteList.get(actulaiteList.size() - 1);
         assertThat(testActulaite.getDate()).isEqualTo(DEFAULT_DATE);
         assertThat(testActulaite.getData()).isEqualTo(DEFAULT_DATA);
+        assertThat(testActulaite.getImage()).isEqualTo(DEFAULT_IMAGE);
+        assertThat(testActulaite.getImageContentType()).isEqualTo(DEFAULT_IMAGE_CONTENT_TYPE);
     }
 
     @Test
@@ -129,7 +145,9 @@ class ActulaiteResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(actulaite.getId().intValue())))
             .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
-            .andExpect(jsonPath("$.[*].data").value(hasItem(DEFAULT_DATA)));
+            .andExpect(jsonPath("$.[*].data").value(hasItem(DEFAULT_DATA)))
+            .andExpect(jsonPath("$.[*].imageContentType").value(hasItem(DEFAULT_IMAGE_CONTENT_TYPE)))
+            .andExpect(jsonPath("$.[*].image").value(hasItem(Base64.getEncoder().encodeToString(DEFAULT_IMAGE))));
     }
 
     @Test
@@ -145,7 +163,9 @@ class ActulaiteResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(actulaite.getId().intValue()))
             .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
-            .andExpect(jsonPath("$.data").value(DEFAULT_DATA));
+            .andExpect(jsonPath("$.data").value(DEFAULT_DATA))
+            .andExpect(jsonPath("$.imageContentType").value(DEFAULT_IMAGE_CONTENT_TYPE))
+            .andExpect(jsonPath("$.image").value(Base64.getEncoder().encodeToString(DEFAULT_IMAGE)));
     }
 
     @Test
@@ -167,7 +187,7 @@ class ActulaiteResourceIT {
         Actulaite updatedActulaite = actulaiteRepository.findById(actulaite.getId()).orElseThrow();
         // Disconnect from session so that the updates on updatedActulaite are not directly saved in db
         em.detach(updatedActulaite);
-        updatedActulaite.date(UPDATED_DATE).data(UPDATED_DATA);
+        updatedActulaite.date(UPDATED_DATE).data(UPDATED_DATA).image(UPDATED_IMAGE).imageContentType(UPDATED_IMAGE_CONTENT_TYPE);
 
         restActulaiteMockMvc
             .perform(
@@ -183,6 +203,8 @@ class ActulaiteResourceIT {
         Actulaite testActulaite = actulaiteList.get(actulaiteList.size() - 1);
         assertThat(testActulaite.getDate()).isEqualTo(UPDATED_DATE);
         assertThat(testActulaite.getData()).isEqualTo(UPDATED_DATA);
+        assertThat(testActulaite.getImage()).isEqualTo(UPDATED_IMAGE);
+        assertThat(testActulaite.getImageContentType()).isEqualTo(UPDATED_IMAGE_CONTENT_TYPE);
     }
 
     @Test
@@ -269,6 +291,8 @@ class ActulaiteResourceIT {
         Actulaite testActulaite = actulaiteList.get(actulaiteList.size() - 1);
         assertThat(testActulaite.getDate()).isEqualTo(UPDATED_DATE);
         assertThat(testActulaite.getData()).isEqualTo(DEFAULT_DATA);
+        assertThat(testActulaite.getImage()).isEqualTo(DEFAULT_IMAGE);
+        assertThat(testActulaite.getImageContentType()).isEqualTo(DEFAULT_IMAGE_CONTENT_TYPE);
     }
 
     @Test
@@ -283,7 +307,7 @@ class ActulaiteResourceIT {
         Actulaite partialUpdatedActulaite = new Actulaite();
         partialUpdatedActulaite.setId(actulaite.getId());
 
-        partialUpdatedActulaite.date(UPDATED_DATE).data(UPDATED_DATA);
+        partialUpdatedActulaite.date(UPDATED_DATE).data(UPDATED_DATA).image(UPDATED_IMAGE).imageContentType(UPDATED_IMAGE_CONTENT_TYPE);
 
         restActulaiteMockMvc
             .perform(
@@ -299,6 +323,8 @@ class ActulaiteResourceIT {
         Actulaite testActulaite = actulaiteList.get(actulaiteList.size() - 1);
         assertThat(testActulaite.getDate()).isEqualTo(UPDATED_DATE);
         assertThat(testActulaite.getData()).isEqualTo(UPDATED_DATA);
+        assertThat(testActulaite.getImage()).isEqualTo(UPDATED_IMAGE);
+        assertThat(testActulaite.getImageContentType()).isEqualTo(UPDATED_IMAGE_CONTENT_TYPE);
     }
 
     @Test

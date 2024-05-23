@@ -12,6 +12,11 @@
     {
       "fieldName": "data",
       "fieldType": "String"
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
     }
   ],
   "name": "Actulaite",
