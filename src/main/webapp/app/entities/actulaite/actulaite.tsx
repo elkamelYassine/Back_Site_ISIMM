@@ -101,6 +101,14 @@ export const Actulaite = () => {
                   <Translate contentKey="isimmManagerApp.actulaite.image">Image</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('image')} />
                 </th>
+                <th className="hand" onClick={sort('title')}>
+                  <Translate contentKey="isimmManagerApp.actulaite.title">Title</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('title')} />
+                </th>
+                <th className="hand" onClick={sort('description')}>
+                  <Translate contentKey="isimmManagerApp.actulaite.description">Description</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('description')} />
+                </th>
                 <th />
               </tr>
             </thead>
@@ -129,6 +137,8 @@ export const Actulaite = () => {
                       </div>
                     ) : null}
                   </td>
+                  <td>{actulaite.title}</td>
+                  <td>{actulaite.description}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/actulaite/${actulaite.id}`} color="info" size="sm" data-cy="entityDetailsButton">

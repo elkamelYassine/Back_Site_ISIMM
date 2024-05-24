@@ -6,6 +6,8 @@ export interface IActulaite {
   data?: string | null;
   imageContentType?: string | null;
   image?: string | null;
+  title?: string | null;
+  description?: string | null;
 }
 
 export const defaultValue: Readonly<IActulaite> = {};

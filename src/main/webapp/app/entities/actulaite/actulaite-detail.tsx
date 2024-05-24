@@ -63,6 +63,18 @@ export const ActulaiteDetail = () => {
               </div>
             ) : null}
           </dd>
+          <dt>
+            <span id="title">
+              <Translate contentKey="isimmManagerApp.actulaite.title">Title</Translate>
+            </span>
+          </dt>
+          <dd>{actulaiteEntity.title}</dd>
+          <dt>
+            <span id="description">
+              <Translate contentKey="isimmManagerApp.actulaite.description">Description</Translate>
+            </span>
+          </dt>
+          <dd>{actulaiteEntity.description}</dd>
         </dl>
         <Button tag={Link} to="/actulaite" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

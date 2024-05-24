@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tech.jhipster.web.util.HeaderUtil;
 import tech.jhipster.web.util.PaginationUtil;
 import tech.jhipster.web.util.ResponseUtil;
+import tn.isimm.manager.domain.Etudiant;
 import tn.isimm.manager.domain.Professeur;
 import tn.isimm.manager.repository.ProfesseurRepository;
 import tn.isimm.manager.web.rest.errors.BadRequestAlertException;
@@ -190,6 +191,13 @@ public class ProfesseurResource {
         }
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/login/{userId}")
+    public ResponseEntity<Professeur> getProfessseurByUser(@PathVariable("userId") String userId) {
+        log.debug("REST request to get Professeur by userId : {}", userId);
+        Optional<Professeur> professeur = professeurRepository.findProfesseurByUser(userId);
+        return ResponseUtil.wrapOrNotFound(professeur);
     }
 
     /**

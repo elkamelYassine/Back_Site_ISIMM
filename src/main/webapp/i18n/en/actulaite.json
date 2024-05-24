@@ -20,7 +20,9 @@
       "id": "ID",
       "date": "Date",
       "data": "Data",
-      "image": "Image"
+      "image": "Image",
+      "title": "Title",
+      "description": "Description"
     }
   }
 }

@@ -43,6 +43,12 @@ class ActulaiteResourceIT {
     private static final String DEFAULT_IMAGE_CONTENT_TYPE = "image/jpg";
     private static final String UPDATED_IMAGE_CONTENT_TYPE = "image/png";
 
+    private static final String DEFAULT_TITLE = "AAAAAAAAAA";
+    private static final String UPDATED_TITLE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
+    private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
+
     private static final String ENTITY_API_URL = "/api/actulaites";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -71,7 +77,9 @@ class ActulaiteResourceIT {
             .date(DEFAULT_DATE)
             .data(DEFAULT_DATA)
             .image(DEFAULT_IMAGE)
-            .imageContentType(DEFAULT_IMAGE_CONTENT_TYPE);
+            .imageContentType(DEFAULT_IMAGE_CONTENT_TYPE)
+            .title(DEFAULT_TITLE)
+            .description(DEFAULT_DESCRIPTION);
         return actulaite;
     }
 
@@ -86,7 +94,9 @@ class ActulaiteResourceIT {
             .date(UPDATED_DATE)
             .data(UPDATED_DATA)
             .image(UPDATED_IMAGE)
-            .imageContentType(UPDATED_IMAGE_CONTENT_TYPE);
+            .imageContentType(UPDATED_IMAGE_CONTENT_TYPE)
+            .title(UPDATED_TITLE)
+            .description(UPDATED_DESCRIPTION);
         return actulaite;
     }
 
@@ -112,6 +122,8 @@ class ActulaiteResourceIT {
         assertThat(testActulaite.getData()).isEqualTo(DEFAULT_DATA);
         assertThat(testActulaite.getImage()).isEqualTo(DEFAULT_IMAGE);
         assertThat(testActulaite.getImageContentType()).isEqualTo(DEFAULT_IMAGE_CONTENT_TYPE);
+        assertThat(testActulaite.getTitle()).isEqualTo(DEFAULT_TITLE);
+        assertThat(testActulaite.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
     }
 
     @Test
@@ -147,7 +159,9 @@ class ActulaiteResourceIT {
             .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
             .andExpect(jsonPath("$.[*].data").value(hasItem(DEFAULT_DATA)))
             .andExpect(jsonPath("$.[*].imageContentType").value(hasItem(DEFAULT_IMAGE_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].image").value(hasItem(Base64.getEncoder().encodeToString(DEFAULT_IMAGE))));
+            .andExpect(jsonPath("$.[*].image").value(hasItem(Base64.getEncoder().encodeToString(DEFAULT_IMAGE))))
+            .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)))
+            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)));
     }
 
     @Test
@@ -165,7 +179,9 @@ class ActulaiteResourceIT {
             .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
             .andExpect(jsonPath("$.data").value(DEFAULT_DATA))
             .andExpect(jsonPath("$.imageContentType").value(DEFAULT_IMAGE_CONTENT_TYPE))
-            .andExpect(jsonPath("$.image").value(Base64.getEncoder().encodeToString(DEFAULT_IMAGE)));
+            .andExpect(jsonPath("$.image").value(Base64.getEncoder().encodeToString(DEFAULT_IMAGE)))
+            .andExpect(jsonPath("$.title").value(DEFAULT_TITLE))
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION));
     }
 
     @Test
@@ -187,7 +203,13 @@ class ActulaiteResourceIT {
         Actulaite updatedActulaite = actulaiteRepository.findById(actulaite.getId()).orElseThrow();
         // Disconnect from session so that the updates on updatedActulaite are not directly saved in db
         em.detach(updatedActulaite);
-        updatedActulaite.date(UPDATED_DATE).data(UPDATED_DATA).image(UPDATED_IMAGE).imageContentType(UPDATED_IMAGE_CONTENT_TYPE);
+        updatedActulaite
+            .date(UPDATED_DATE)
+            .data(UPDATED_DATA)
+            .image(UPDATED_IMAGE)
+            .imageContentType(UPDATED_IMAGE_CONTENT_TYPE)
+            .title(UPDATED_TITLE)
+            .description(UPDATED_DESCRIPTION);
 
         restActulaiteMockMvc
             .perform(
@@ -205,6 +227,8 @@ class ActulaiteResourceIT {
         assertThat(testActulaite.getData()).isEqualTo(UPDATED_DATA);
         assertThat(testActulaite.getImage()).isEqualTo(UPDATED_IMAGE);
         assertThat(testActulaite.getImageContentType()).isEqualTo(UPDATED_IMAGE_CONTENT_TYPE);
+        assertThat(testActulaite.getTitle()).isEqualTo(UPDATED_TITLE);
+        assertThat(testActulaite.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
     }
 
     @Test
@@ -293,6 +317,8 @@ class ActulaiteResourceIT {
         assertThat(testActulaite.getData()).isEqualTo(DEFAULT_DATA);
         assertThat(testActulaite.getImage()).isEqualTo(DEFAULT_IMAGE);
         assertThat(testActulaite.getImageContentType()).isEqualTo(DEFAULT_IMAGE_CONTENT_TYPE);
+        assertThat(testActulaite.getTitle()).isEqualTo(DEFAULT_TITLE);
+        assertThat(testActulaite.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
     }
 
     @Test
@@ -307,7 +333,13 @@ class ActulaiteResourceIT {
         Actulaite partialUpdatedActulaite = new Actulaite();
         partialUpdatedActulaite.setId(actulaite.getId());
 
-        partialUpdatedActulaite.date(UPDATED_DATE).data(UPDATED_DATA).image(UPDATED_IMAGE).imageContentType(UPDATED_IMAGE_CONTENT_TYPE);
+        partialUpdatedActulaite
+            .date(UPDATED_DATE)
+            .data(UPDATED_DATA)
+            .image(UPDATED_IMAGE)
+            .imageContentType(UPDATED_IMAGE_CONTENT_TYPE)
+            .title(UPDATED_TITLE)
+            .description(UPDATED_DESCRIPTION);
 
         restActulaiteMockMvc
             .perform(
@@ -325,6 +357,8 @@ class ActulaiteResourceIT {
         assertThat(testActulaite.getData()).isEqualTo(UPDATED_DATA);
         assertThat(testActulaite.getImage()).isEqualTo(UPDATED_IMAGE);
         assertThat(testActulaite.getImageContentType()).isEqualTo(UPDATED_IMAGE_CONTENT_TYPE);
+        assertThat(testActulaite.getTitle()).isEqualTo(UPDATED_TITLE);
+        assertThat(testActulaite.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
     }
 
     @Test

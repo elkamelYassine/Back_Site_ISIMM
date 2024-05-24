@@ -38,6 +38,9 @@ public interface EtudiantRepository extends EtudiantRepositoryWithBagRelationshi
     @Query("select etudiant from Etudiant etudiant left join fetch etudiant.user")
     List<Etudiant> findAllWithToOneRelationships();
 
+    @Query("select e from Etudiant e where e.user.login = :userId")
+    Optional<Etudiant> findEtudiantByUser(@Param("userId") String userId);
+
     @Query("select etudiant from Etudiant etudiant left join fetch etudiant.user where etudiant.id =:id")
     Optional<Etudiant> findOneWithToOneRelationships(@Param("id") Long id);
 }

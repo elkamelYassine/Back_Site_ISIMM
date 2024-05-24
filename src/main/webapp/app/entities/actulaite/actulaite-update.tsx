@@ -114,6 +114,20 @@ export const ActulaiteUpdate = () => {
                 isImage
                 accept="image/*"
               />
+              <ValidatedField
+                label={translate('isimmManagerApp.actulaite.title')}
+                id="actulaite-title"
+                name="title"
+                data-cy="title"
+                type="text"
+              />
+              <ValidatedField
+                label={translate('isimmManagerApp.actulaite.description')}
+                id="actulaite-description"
+                name="description"
+                data-cy="description"
+                type="text"
+              />
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/actulaite" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
