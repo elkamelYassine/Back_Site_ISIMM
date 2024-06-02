@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import tn.isimm.manager.domain.Etudiant;
 import tn.isimm.manager.domain.Professeur;
 
 /**
@@ -40,4 +41,7 @@ public interface ProfesseurRepository extends ProfesseurRepositoryWithBagRelatio
 
     @Query("select professeur from Professeur professeur left join fetch professeur.user where professeur.id =:id")
     Optional<Professeur> findOneWithToOneRelationships(@Param("id") Long id);
+
+    @Query("select p from Professeur p where p.user.login = :userId")
+    Optional<Professeur> findProfesseurByUser(@Param("userId") String userId);
 }

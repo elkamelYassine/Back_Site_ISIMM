@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Button, Row, Col, FormText } from 'reactstrap';
-import { isNumber, Translate, translate, ValidatedField, ValidatedForm } from 'react-jhipster';
+import { isNumber, Translate, translate, ValidatedField, ValidatedForm, ValidatedBlobField } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
@@ -104,6 +104,28 @@ export const ActulaiteUpdate = () => {
                 id="actulaite-data"
                 name="data"
                 data-cy="data"
+                type="text"
+              />
+              <ValidatedBlobField
+                label={translate('isimmManagerApp.actulaite.image')}
+                id="actulaite-image"
+                name="image"
+                data-cy="image"
+                isImage
+                accept="image/*"
+              />
+              <ValidatedField
+                label={translate('isimmManagerApp.actulaite.title')}
+                id="actulaite-title"
+                name="title"
+                data-cy="title"
+                type="text"
+              />
+              <ValidatedField
+                label={translate('isimmManagerApp.actulaite.description')}
+                id="actulaite-description"
+                name="description"
+                data-cy="description"
                 type="text"
               />
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/actulaite" replace color="info">

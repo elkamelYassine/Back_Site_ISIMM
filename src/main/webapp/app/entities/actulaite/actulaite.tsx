@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button, Table } from 'reactstrap';
-import { Translate, TextFormat, getSortState } from 'react-jhipster';
+import { openFile, byteSize, Translate, TextFormat, getSortState } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSort, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
@@ -97,6 +97,18 @@ export const Actulaite = () => {
                   <Translate contentKey="isimmManagerApp.actulaite.data">Data</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('data')} />
                 </th>
+                <th className="hand" onClick={sort('image')}>
+                  <Translate contentKey="isimmManagerApp.actulaite.image">Image</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('image')} />
+                </th>
+                <th className="hand" onClick={sort('title')}>
+                  <Translate contentKey="isimmManagerApp.actulaite.title">Title</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('title')} />
+                </th>
+                <th className="hand" onClick={sort('description')}>
+                  <Translate contentKey="isimmManagerApp.actulaite.description">Description</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('description')} />
+                </th>
                 <th />
               </tr>
             </thead>
@@ -110,6 +122,23 @@ export const Actulaite = () => {
                   </td>
                   <td>{actulaite.date ? <TextFormat type="date" value={actulaite.date} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
                   <td>{actulaite.data}</td>
+                  <td>
+                    {actulaite.image ? (
+                      <div>
+                        {actulaite.imageContentType ? (
+                          <a onClick={openFile(actulaite.imageContentType, actulaite.image)}>
+                            <img src={`data:${actulaite.imageContentType};base64,${actulaite.image}`} style={{ maxHeight: '30px' }} />
+                            &nbsp;
+                          </a>
+                        ) : null}
+                        <span>
+                          {actulaite.imageContentType}, {byteSize(actulaite.image)}
+                        </span>
+                      </div>
+                    ) : null}
+                  </td>
+                  <td>{actulaite.title}</td>
+                  <td>{actulaite.description}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/actulaite/${actulaite.id}`} color="info" size="sm" data-cy="entityDetailsButton">

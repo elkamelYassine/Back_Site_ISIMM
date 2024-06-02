@@ -199,6 +199,13 @@ public class EtudiantResource {
         return ResponseUtil.wrapOrNotFound(etudiant);
     }
 
+    @GetMapping("/login/{userId}")
+    public ResponseEntity<Etudiant> getEtudiantByUser(@PathVariable("userId") String userId) {
+        log.debug("REST request to get Etudiant by userId : {}", userId);
+        Optional<Etudiant> etudiant = etudiantRepository.findEtudiantByUser(userId);
+        return ResponseUtil.wrapOrNotFound(etudiant);
+    }
+
     /**
      * {@code DELETE  /etudiants/:id} : delete the "id" etudiant.
      *

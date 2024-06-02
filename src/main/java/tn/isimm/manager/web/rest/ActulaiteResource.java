@@ -129,6 +129,18 @@ public class ActulaiteResource {
                 if (actulaite.getData() != null) {
                     existingActulaite.setData(actulaite.getData());
                 }
+                if (actulaite.getImage() != null) {
+                    existingActulaite.setImage(actulaite.getImage());
+                }
+                if (actulaite.getImageContentType() != null) {
+                    existingActulaite.setImageContentType(actulaite.getImageContentType());
+                }
+                if (actulaite.getTitle() != null) {
+                    existingActulaite.setTitle(actulaite.getTitle());
+                }
+                if (actulaite.getDescription() != null) {
+                    existingActulaite.setDescription(actulaite.getDescription());
+                }
 
                 return existingActulaite;
             })

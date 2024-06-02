@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button, Row, Col } from 'reactstrap';
-import { Translate, TextFormat } from 'react-jhipster';
+import { Translate, openFile, byteSize, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
@@ -44,6 +44,37 @@ export const ActulaiteDetail = () => {
             </span>
           </dt>
           <dd>{actulaiteEntity.data}</dd>
+          <dt>
+            <span id="image">
+              <Translate contentKey="isimmManagerApp.actulaite.image">Image</Translate>
+            </span>
+          </dt>
+          <dd>
+            {actulaiteEntity.image ? (
+              <div>
+                {actulaiteEntity.imageContentType ? (
+                  <a onClick={openFile(actulaiteEntity.imageContentType, actulaiteEntity.image)}>
+                    <img src={`data:${actulaiteEntity.imageContentType};base64,${actulaiteEntity.image}`} style={{ maxHeight: '30px' }} />
+                  </a>
+                ) : null}
+                <span>
+                  {actulaiteEntity.imageContentType}, {byteSize(actulaiteEntity.image)}
+                </span>
+              </div>
+            ) : null}
+          </dd>
+          <dt>
+            <span id="title">
+              <Translate contentKey="isimmManagerApp.actulaite.title">Title</Translate>
+            </span>
+          </dt>
+          <dd>{actulaiteEntity.title}</dd>
+          <dt>
+            <span id="description">
+              <Translate contentKey="isimmManagerApp.actulaite.description">Description</Translate>
+            </span>
+          </dt>
+          <dd>{actulaiteEntity.description}</dd>
         </dl>
         <Button tag={Link} to="/actulaite" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}
